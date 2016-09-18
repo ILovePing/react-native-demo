@@ -9,6 +9,7 @@ import { Navigator, Text, TouchableHighlight, View,AppRegistry} from 'react-nati
 // }
 // AV.initialize(ACCOUNT.APP_ID, ACCOUNT.APP_KEY);
 import navigation from './src/app';
+import FirstPage from './src/navigator_uniform'
 //  class MyProject extends Component {
 //   render() {
 //     return (
@@ -39,4 +40,4 @@ import navigation from './src/app';
 //     )
 //   }
 // }
-AppRegistry.registerComponent('MyProject', () => navigation);
+AppRegistry.registerComponent('MyProject', () => FirstPage);
