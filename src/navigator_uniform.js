@@ -7,6 +7,9 @@ import {
 	TouchableOpacity
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+console.log(`Icon is ${Icon}`)
+const searchBtn = (<Icon name="search" size={30} color="#fff" />)
 
 class FirstPage extends Component {
     static propTypes = {
@@ -40,6 +43,7 @@ class FirstPage extends Component {
     render() {
         return (
             <View style={styles.container}>
+            
             	<TouchableOpacity
             	style={styles.button}
             	onPress={()=>this._goNext('第一页')} >
@@ -88,7 +92,13 @@ const routeMapper = {
 				</View>
 				);
 		}else{
-			return null;
+			return (
+				<View style={styles.navContainer}>
+					<TouchableOpacity >
+						<Text  style={styles.leftNavButtonText}>{searchBtn}</Text>
+					</TouchableOpacity>
+				</View>
+				)
 		}
 	},
 	RightButton(route,navigator,index,navState){
@@ -144,7 +154,7 @@ class UniformView extends Component {
         renderScene={this.renderScene}
         navigationBar={
           <Navigator.NavigationBar
-            style={styles.navContainer}
+            style={styles.navBarContainer}
             routeMapper={routeMapper}/>}
         />
     );
@@ -167,10 +177,17 @@ const styles = StyleSheet.create({
 		fontSize:18,
 		color:'#fff'
 	},
+  navBarContainer:{
+    flex:1,
+    flexDirection:'row',
+    backgroundColor:'#FF1049'
+  },
+
 	navContainer:{
+    flex:1,
 		paddingTop:12,
 		paddingBottom:10,
-		backgroundColor:'#81c04d'
+		backgroundColor:'#FF1049',
 	},
 	// 左面导航按钮
   leftNavButtonText: {
@@ -193,11 +210,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     color: '#fff',
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontWeight: 'bold',
-    flex: 1                //Step 3
+    paddingLeft:120,
+    width:200,
+    fontWeight: 'bold'               //Step 3
   }
 });
 export default UniformView;
