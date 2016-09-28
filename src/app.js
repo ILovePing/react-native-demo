@@ -97,7 +97,6 @@ export default class navigation extends Component {
       <Navigator.NavigationBar
         style={{
           flex:1,
-          justifyContent:'space-between',
           alignItems: 'center',
           backgroundColor: '#F04848',
           shadowOffset:{
