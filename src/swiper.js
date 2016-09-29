@@ -3,6 +3,7 @@ import {
 	StyleSheet,
 	Text,
 	View,
+	Image,
 	Navigator,
 	TouchableOpacity
 } from 'react-native';
@@ -20,23 +21,25 @@ class Huandengpian extends Component {
 
     render() {
         return (
-            <Swiper style={styles.wrapper} showsButtons={true}>
-        <View style={styles.slide1}>
-          <Text style={styles.text}>Hello Swiper</Text>
-        </View>
-        <View style={styles.slide2}>
-          <Text style={styles.text}>Beautiful</Text>
-        </View>
-        <View style={styles.slide3}>
-          <Text style={styles.text}>And simple</Text>
-        </View>
-      </Swiper>
+            <Swiper style={styles.wrapper} height={250} showsButtons={false} autoplay={true} autoplayDirection={true} autoplayTimeout={2.5}>
+          	<Image style={styles.slide} source={{uri:images[0]}} ></Image>
+			<Image style={styles.slide} source={{uri:images[1]}} ></Image>
+			<Image style={styles.slide} source={{uri:images[2]}} ></Image>
+			<Image style={styles.slide} source={{uri:images[3]}} ></Image>
+		   </Swiper>
         );
     }
 }
+const images = ['http://yanxuan.nosdn.127.net/cd1c08435cf3e3d7af33379dc000e6b2.jpg?imageView&quality=95&thumbnail=1920x480',
+'http://yanxuan.nosdn.127.net/b5843ab8811fed88b60e739d534487e8.jpg?imageView&quality=95&thumbnail=1920x480',
+'http://yanxuan.nosdn.127.net/98db66811c9f4b617471b098a4d57736.jpg?imageView&quality=95&thumbnail=1920x480',
+'http://yanxuan.nosdn.127.net/86c4165eacfce9c69825d70d9b203f32.jpg?imageView&quality=95&thumbnail=1920x480']
 var styles = StyleSheet.create({
   wrapper: {
-  	height:200
+  },
+  slide:{
+  	height:250,
+  	resizeMode: Image.resizeMode.cover,
   },
   slide1: {
     flex: 1,
@@ -57,7 +60,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#92BBD9',
   },
   text: {
-    color: '#fff',
+    color: '#000',
     fontSize: 30,
     fontWeight: 'bold',
   }

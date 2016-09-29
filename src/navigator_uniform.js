@@ -6,10 +6,11 @@ import {
 	Navigator,
 	TouchableOpacity
 } from 'react-native';
-
+import ScrollableTabView,{DefaultTabBar, }from 'react-native-scrollable-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import searchPage from './search';
 import Huandengpian from './swiper';
+import BottomTabBar from './bottomTabBar';
 const searchBtn = (<Icon name="search" size={30} color="#fff" />);
 const backBtn = (<Icon name="chevron-left" size={30} color="#fff" />);
 const bellBtn = (<Icon name="bell" size={30} color="#fff" />);
@@ -45,7 +46,7 @@ class FirstPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-            <View style={{height:200}} ><Huandengpian /></View>
+            <View style={{}} ><Huandengpian /></View>
             	<TouchableOpacity
             	style={styles.button}
             	onPress={()=>this._goNext('第一页')} >
@@ -60,6 +61,7 @@ class FirstPage extends Component {
             {'跳转至第二页(底部)'}
           </Text>
         </TouchableOpacity>
+        <BottomTabBar />
             </View>
         );
     }
@@ -189,7 +191,7 @@ class UniformView extends Component {
 const styles = StyleSheet.create({
 	container:{
 		flex:1,
-		marginTop:100,
+		marginTop:56,
 		flexDirection:'column'
 	},
 	button:{
